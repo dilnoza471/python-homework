@@ -3,31 +3,38 @@ from lib import *
 
 class Library:
     def __init__(self):
+        """initialize the library"""
         self.books = []
         self.members = []
 
     def add_book(self, book):
+        """add a book to the library"""
         self.books.append(book)
         print("New book added.")
         print(self.books[-1])
 
     def add_member(self, member):
+        """add a member to the library"""
         self.members.append(member)
         print("New member added.")
         print(self.members[-1])
 
     def search_book(self, book_id):
+        """search book by id, return if found, if not raise Exception"""
         for book in self.books:
             if book.book_id == book_id:
                 return book
         raise BookNotFoundException
 
     def search_member(self, member_id):
+        """search member by id, return if found, if not raise Exception"""
         for member in self.members:
             if member.member_id == member_id:
                 return member
         raise MemberNotFoundException
+
     def return_books(self, book_id, member_id):
+        """returns the book by book_id borrowed by member with id member_id"""
         book = self.search_book(book_id)
         member = self.search_member(member_id)
         if book.is_borrowed and member.search_book(book.book_id):
@@ -36,7 +43,9 @@ class Library:
             print("Book returned.")
         else:
             print("Member already returned the book")
+
     def borrow_books(self, book_id, member_id):
+        """issue a book( with book_id) borrow to a member with member_id"""
         book = self.search_book(book_id)
         member = self.search_member(member_id)
         if book.is_borrowed:
@@ -48,13 +57,18 @@ class Library:
         print("Member borrowed the book. ")
 
     def show_members(self):
+        """print all members"""
         for member in self.members:
             print(member)
+
     def show_books(self):
+        """print all books"""
         for book in self.books:
             print(book)
 
+
 def show_menu():
+    """show menu"""
     print("""
     1. Add book
     2. Add member
@@ -64,6 +78,8 @@ def show_menu():
     6. Show books
     7. Search Member
     8. Exit""")
+
+
 def main():
     library = Library()
     while True:
@@ -114,6 +130,6 @@ def main():
         else:
             print("Invalid choice")
 
+
 if __name__ == "__main__":
     main()
-
