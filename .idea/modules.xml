@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Documents/Python_homework/lesson-17/.idea/lesson-17.iml" filepath="$USER_HOME$/Documents/Python_homework/lesson-17/.idea/lesson-17.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/python-homework.iml" filepath="$PROJECT_DIR$/.idea/python-homework.iml" />
     </modules>
   </component>
